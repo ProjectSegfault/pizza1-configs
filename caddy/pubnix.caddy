@@ -1,0 +1,38 @@
+# Reverse proxy all user sites
+*.p.projectsegfau.lt {
+	reverse_proxy 10.7.0.2:80
+	import acmedns
+}
+
+# Redirect base subdomain to the pubnix homepage
+p.projectsegfau.lt {
+	redir https://projectsegfau.lt/pubnix
+}
+
+# Cockpit
+cockpit.p.projectsegfau.lt {
+	reverse_proxy 10.7.0.2:9090 {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+	import def
+	import torloc cockpit.p
+}
+
+# PublAPI
+publapi.p.projectsegfau.lt {
+	reverse_proxy 10.7.0.2:3000
+	import def
+}
+grafana.p.projectsegfau.lt {
+	reverse_proxy 10.7.0.2:6943 {
+		header_up X-Real-IP {remote_host}
+	}
+	import def
+}
+geminiproxy.p.projectsegfau.lt {
+	reverse_proxy 10.7.0.2:8000
+	import def
+	import torloc geminiproxy.p
+}

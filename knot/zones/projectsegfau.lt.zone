@@ -1,0 +1,105 @@
+; To be placed in /var/lib/knot/zones/projectsegfau.lt.zone
+$ORIGIN projectsegfau.lt. ; 'default' domain as FQDN for this zone
+$TTL 300 ; default time-to-live for this zone
+
+projectsegfau.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
+        2023022702  ;Serial
+        14400       ;Refresh
+        300        ;Retry
+        1209600     ;Expire
+        300        ;Negative response caching TTL
+)
+
+; The nameserver that are authoritative for this zone.
+@	IN	NS	ns1.projectsegfau.lt.
+@	IN	NS	ns2.projectsegfau.lt.
+ns1	A	107.189.12.96
+ns2	A	143.198.131.196
+
+; Pizza-1
+pizza1                               A	107.189.12.96
+pizza                               A	107.189.12.96
+*.eu				A 107.189.12.96
+*.bp                            A 107.189.12.96 
+pizza1                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+pizza                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+*.eu				AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+*.bp                            AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25 
+*.p.projectsegfau.lt. 	A	107.189.12.96
+p.projectsegfau.lt. 	A	107.189.12.96
+*.p.projectsegfau.lt. 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+p.projectsegfau.lt. 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+ferrit.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
+proxy.lbry.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
+arya.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
+gothub.dev.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
+
+; Soleil Levant
+*                               A	92.148.60.159
+@                               A	92.148.60.159
+web.dev.projectsegfau.lt.		A	92.148.60.159
+auth.p.projectsegfau.lt.		A	92.148.60.159
+autoconfig.projectsegfau.lt.	CNAME	mail.projectsegfau.lt.
+autodiscover.projectsegfau.lt.	CNAME	mail.projectsegfau.lt.
+_xmpp-client._tcp		SRV	10 0 5222 xmpp.projectsegfau.lt.
+_xmpp-server._tcp		SRV	10 0 5269 xmpp.projectsegfau.lt.
+_xmpps-client._tcp		SRV	10 0 5223 xmpp.projectsegfau.lt.
+_xmpps-server._tcp		SRV	10 0 5270 xmpp.projectsegfau.lt.
+_of._tcp.of.projectsegfau.lt SRV    5  0 27015 of.projectsegfau.lt.
+
+; US Node
+*.us				A	143.198.131.196
+us				A	143.198.131.196
+*.us				AAAA	2604:a880:4:1d0::52:7000
+us				AAAA	2604:a880:4:1d0::52:7000
+
+; IN Node
+in	A	110.227.202.171
+*.in	A	110.227.202.171
+
+; Status VPS
+status				A	51.91.103.130
+hole				A	51.91.103.130
+wg				A	51.91.103.130
+hole				AAAA	2001:41d0:404:200::5149
+status				AAAA	2001:41d0:404:200::5149
+wg				AAAA	2001:41d0:404:200::5149
+
+; Mail Stuff
+mail.projectsegfau.lt.		A	92.148.60.159
+feb2023._domainkey    IN   TXT   "v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+gF5p8pTKZMPe4rDdsDTedelOTeIcEYzy5Fd1b3Tv0gWTOkk7Lx+opIY0lUU9k+K+UbPJ4asUT6zrdZusXrp85g36Rh8+lZbZWr6mqE/GJjIh9kIvXRWasHZpcnws2Ex2Mc2tefJ9FtFntpoX/v0zR2Wr8wiztZrHL23VaY+7kLgPe4PC0CM4tLyuuraC0AYVjI/yCvo8XZkb7kvOfi+EpThN3B91zSGVnZXPJdtQdE/JJ2psthhRilHBwo1Rs+PsFNFvi1chHPP44z2JPS7OyALR+ycDvXz2Hj6WS8s9pcXk7NPi0sLY+h+5Ha6KoDa4sjBmmEN07U+hE+2/rE9IQIDAQAB"
+dkim._domainkey.projectsegfau.lt. 600 IN TXT "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Z7evsQCm7e0ZN+dx3ygeSHRi6NCOjVInqnrnDe2xkooUp/szLXZ1xsGQAYM+tZ8+M0WKdIm7uQq8xCEdjDCO/l/fE6b4/3u11aj44tLXBsse5gQvOH/SQpw/zwzgU07tnOjajCExnuIeZaDNw6S5iN2oGUlkvIzIw2zv5PFVa9ax4/N0TuTMKQOysFh" "JHv2lJjvA/WgqioOOqDFjlhc959lYNqMkjaEb0r2FLky1uQx2c01MzkkXuoNVG+7anrcgzPrQ9AMTBvAsqwStwX+6JpNcwh6MpCBHQmAaFC5TkECwZLopujB+LoTbZcY2ejP8EeKSa04yU/jEnPtsMdb5wIDAQAB"
+@		TXT	"v=spf1 ip4:107.189.12.96 ip4:92.148.60.159 include:relay.selea.se ~all"
+_dmarc.projectsegfau.lt. 600 IN TXT "v=DMARC1; p=reject; rua=mailto:admin@projectsegfau.lt; ruf=mailto:admin@projectsegfau.lt; adkim=s; aspf=s"
+_imap._tcp.projectsegfau.lt. 600 IN SRV 20 1 143 mail.projectsegfau.lt.
+_pop3._tcp.projectsegfau.lt. 600 IN SRV 20 1 110 mail.projectsegfau.lt.
+_submission._tcp.projectsegfau.lt. 600 IN SRV 20 1 587 mail.projectsegfau.lt.
+_autodiscover._tcp.projectsegfau.lt. 600 IN SRV 10 1 443 mail.projectsegfau.lt.
+_submissions._tcp.projectsegfau.lt. 600 IN SRV 10 1 465 mail.projectsegfau.lt.
+_imaps._tcp.projectsegfau.lt. 600 IN SRV 10 1 993 mail.projectsegfau.lt.
+_pop3s._tcp.projectsegfau.lt. 600 IN SRV 10 1 995 mail.projectsegfau.lt.
+autoconfig.projectsegfau.lt. 600 IN CNAME mail.projectsegfau.lt.
+_25._tcp.mail.projectsegfau.lt. 86400 IN TLSA 2 1 1 0b9fa5a59eed715c26c1020c711b4f6ec42d58b0015e14337a39dad301c5afc3
+projectsegfau.lt.                    MX      10      mail.projectsegfau.lt.
+p.projectsegfau.lt. 			TXT	     "buyvm-validation=b6444ab72efafcdef664a693ce2ba26ebd03ed1c7377cd08926db831e94a3d5a"
+
+
+; Simplelogin
+sl				A	51.91.103.130
+sl				AAAA	2001:41d0:404:200::5149
+sl.projectsegfau.lt.                    MX      10      sl.projectsegfau.lt.
+dkim._domainkey.sl		TXT	"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC79GZdNBCBZ28EGJcnar/yY3QWlAoeQW0sEQIpibzAtYMtZZw7kBzbKNxRdnMGDOQE1hzo/gJUVv+A2tgsYswXOCjO+l0gtwcKsNuP79Tn9guGtsq5aLeoYuTbvC1SrHLLufv01oEGvT6VlOm3e3+XbGjvXKVQw4ym3H55wD7WbQIDAQAB"
+_dmarc.sl.projectsegfau.lt. 600 IN TXT "v=DMARC1; p=quarantine; rua=mailto:admin@projectsegfau.lt; ruf=mailto:admin@projectsegfau.lt; adkim=r; aspf=r"
+sl		TXT	"v=spf1 ip4:51.91.103.130 ~all"
+
+; Crypto TXT
+@		TXT	"oa1:btc recipient_address=bc1qrc8ywgp95a6p3zausp4nff70qzstp6h8z86sxd; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+@		TXT	"oa1:ltc recipient_address=ltc1qn3ald586h2ntt0n3zkvwsmju2e5vndgtvvgatj; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+@		TXT	"oa1:xmr recipient_address=47L7Qsto7XcifY3CdG18ySe5Tt83kpFLDLve9jQwbc9taPBLNGv6ZrJNUKpMG9Nj9zHgCZ4FQMSyt75e8Jvx12JFLtJyFdA; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+_token._dnswl.projectsegfau.lt.		IN	TXT	"1q5i422gbg9qqlekp8zag8scwwb7oicd"
+; PTR(s)
+159.60.148.92.in-addr.arpa.	PTR	mail.projectsegfau.lt.
+171.202.227.110.in-addr.arpa.	PTR	in.projectsegfau.lt.
+196.131.198.143.in-addr.arpa.	PTR	us.projectsegfau.lt.
+130.103.91.51.in-addr.arpa.	PTR	sl.projectsegfau.lt.
+96.12.189.107.in-addr.arpa.	PTR	pizza1.projectsegfau.lt.

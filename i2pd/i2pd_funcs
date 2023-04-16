@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+i2pown() { chmod 640 "$1" && chown i2pd:i2pd "$1"; }
+geni2p() { /root/i2pd-tools/vain "$2" -o "$1" && i2pown "$1"; }
+vgi2p() { for i in "$@"; do geni2p "/var/lib/i2pd/pjsf.$i.dat" "pjsf"; done; }
+create_i2p() {
+	if [[ -z "$4" ]]; then
+		printf 'Usage: create_i2p service_name keyfile_name clearnet_domain port [type] [host] [inport]\n'
+		return 1
+	fi
+
+	[[ -f /var/lib/i2pd/pjsf.$2.dat ]] || vgi2p "$1"
+	printf '[%s]\ntype = %s\nhost = %s\nport = %s\nkeys = pjsf.%s.dat\n%s' "$3" "${5:-http}" "${6:-127.0.0.1}" "$4" "$2" "${7:+inport = $7}" | tee "/etc/i2pd/tunnels.d/$1.conf"
+	systemctl restart i2pd
+}
+
+delete_i2p() {
+	if [[ -z "$1" ]]; then
+		printf 'Usage: delete_i2p service_name\n'
+		return 1
+	fi
+
+	rm -f /var/lib/i2pd/pjsf.$1.dat
+	rm -f /etc/i2pd/tunnels.d/$1.conf
+	systemctl restart i2pd
+}
+
+i2pup() { export http_proxy="http://127.0.0.1:4444"; }
+i2pdown() { unset http_proxy; }
+
+i2pb32() { /root/i2pd-tools/keyinfo ~i2pd/pjsf.$1.dat; }
+i2pb64() { /root/i2pd-tools/keyinfo -d ~i2pd/pjsf.$1.dat; }
+i2pport() { grep -R '^port = '"$1"'$' /etc/i2pd/tunnels.d/; }

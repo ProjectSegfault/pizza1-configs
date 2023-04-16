@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+geoconf=/etc/knot/geo.conf
+remote='7S23i@us.projectsegfau.lt'
+printf '' > $geoconf
+for i in $(</var/geodnsdomains); do
+	cat /etc/knot/geodnstemplate >> $geoconf
+	sed -i "s/REPLACEME/${i}/" $geoconf
+done
+scp $geoconf "${remote}":/var/geo.conf
+ssh $remote "sudo systemctl restart knot"
+systemctl restart knot

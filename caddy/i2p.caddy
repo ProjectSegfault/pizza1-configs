@@ -1,0 +1,82 @@
+
+## I2P
+http://pjsfg3pdzzocax6a4oznoyf5k4etzknfatqu23i43wxejwdaffoa.b32.i2p:6001 {
+	reverse_proxy https://projectsegfau.lt {
+		header_up Host "projectsegfau.lt"
+	}
+	import tor www
+	import i2ploc pjsfg3pdzzocax6a4oznoyf5k4etzknfatqu23i43wxejwdaffoa.b32.i2p
+}
+http://pjsflkkkcn33ahmzmpyq6idy2knkzh4atp7zaetqfsnenpyori6a.b32.i2p:6008 {
+	reverse_proxy localhost:8006
+	import tor scribe
+	import i2ploc pjsflkkkcn33ahmzmpyq6idy2knkzh4atp7zaetqfsnenpyori6a.b32.i2p
+}
+http://pjsfs4ukb6prmfx3qx3a5ef2cpcupkvcrxdh72kqn2rxc2cw4nka.b32.i2p:6005 {
+	reverse_proxy localhost:8387
+	import tor nitter
+	import i2ploc pjsfs4ukb6prmfx3qx3a5ef2cpcupkvcrxdh72kqn2rxc2cw4nka.b32.i2p
+}
+http://pjsf7uucpqf2crcmfo3nvwdmjhirxxjfyuvibdfp5x3af2ghqnaa.b32.i2p:6003 {
+	import tor lbry
+	import i2ploc pjsf7uucpqf2crcmfo3nvwdmjhirxxjfyuvibdfp5x3af2ghqnaa.b32.i2p
+	reverse_proxy localhost:3550
+}
+http://pjsfkref7g66mji45kyccqnn5hmjtjp3cfodozabpyplj2rmv5sa.b32.i2p:6004 {
+	import tor libreddit
+	import i2ploc pjsfkref7g66mji45kyccqnn5hmjtjp3cfodozabpyplj2rmv5sa.b32.i2p
+	reverse_proxy localhost:6464
+}
+http://pjsfk4xvekoc7wx4pteevp3q2wy7jmzlem7rvl74nx33zkdr4vyq.b32.i2p:6007 { # NW
+	import tor breezewiki
+	import i2ploc pjsfk4xvekoc7wx4pteevp3q2wy7jmzlem7rvl74nx33zkdr4vyq.b32.i2p
+	reverse_proxy localhost:10416
+}
+http://pjsflmvtqax7ii44qy4ladap65c3kqspbs7h7krqy7x43uovklla.b32.i2p:6006 {
+	import tor beatbump
+	import i2ploc pjsflmvtqax7ii44qy4ladap65c3kqspbs7h7krqy7x43uovklla.b32.i2p
+	reverse_proxy localhost:3069
+}
+http://pjsfi2szfkb4guqzmfmlyq4no46fayertjrwt4h2uughccrh2lvq.b32.i2p:6016 {
+	import tor invbp
+	import i2ploc pjsfi2szfkb4guqzmfmlyq4no46fayertjrwt4h2uughccrh2lvq.b32.i2p
+	reverse_proxy localhost:3000
+}
+http://pjsf5ahv7ce67i5ic46ghum3scwatrsyac5i6aa5bynvnnlmpzfa.b32.i2p:6017 {
+	import tor rimgo
+	import i2ploc pjsf5ahv7ce67i5ic46ghum3scwatrsyac5i6aa5bynvnnlmpzfa.b32.i2p
+	reverse_proxy localhost:9016
+}
+http://pjsfa3dd7rxocfqanxenpop2uqfgpw4nevrmy424u5qwyasqdu6a.b32.i2p:6018 {
+	import tor teddit
+	import i2ploc pjsfa3dd7rxocfqanxenpop2uqfgpw4nevrmy424u5qwyasqdu6a.b32.i2p
+	reverse_proxy localhost:9061
+}
+http://pjsfhqamc7k6htnumrvn4cwqqdoggeepj7u5viyimgnxg3gar72q.b32.i2p:6002 {
+	import tor inv
+	import i2ploc pjsfi2szfkb4guqzmfmlyq4no46fayertjrwt4h2uughccrh2lvq.b32.i2p
+	reverse_proxy https://invidious.projectsegfau.lt {
+		header_up Host "invidious.projectsegfau.lt"
+	}
+}
+http://pjsfwklrellqoj275kzeu2tz4c3j5zktnqod56s7l5dc25ro3wgq.b32.i2p:6012 {
+	import tor search
+	import i2ploc pjsfwklrellqoj275kzeu2tz4c3j5zktnqod56s7l5dc25ro3wgq.b32.i2p
+	reverse_proxy https://search.projectsegfau.lt {
+		header_up Host "search.projectsegfau.lt"
+	}
+}
+http://pjsfdrtv2465bisenvzhfvdleznx4arlih2hlnrhpzugailnm7iq.b32.i2p:6013 {
+	import tor git
+	import i2ploc pjsfdrtv2465bisenvzhfvdleznx4arlih2hlnrhpzugailnm7iq.b32.i2p
+	reverse_proxy https://git.projectsegfau.lt {
+		header_up Host "git.projectsegfau.lt"
+	}
+}
+http://pjsfivs2sxudfy65kojxqophc6vqjqdr6woczy6hzaxvxvbj3bkq.b32.i2p:6015 {
+	import i2ploc pjsfivs2sxudfy65kojxqophc6vqjqdr6woczy6hzaxvxvbj3bkq.b32.i2p
+	import tor todo
+	reverse_proxy https://todo.projectsegfau.lt {
+		header_up Host "todo.projectsegfau.lt"
+	}
+}

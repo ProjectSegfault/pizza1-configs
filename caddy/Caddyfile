@@ -1,0 +1,77 @@
+(tor) {
+	header {
+		-Strict-Transport-Security
+		-Referrer-Policy
+		-X-XSS-Protection
+		-Content-Security-Policy
+		# disable clients from sniffing the media type
+		X-Content-Type-Options nosniff
+		Permissions-Policy interest-cohort=()
+		# clickjacking protection
+		X-Frame-Options SAMEORIGIN
+		Onion-Location http://{args.0}.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion{path}
+		defer
+	}
+}
+(torloc) {
+	header Onion-Location http://{args.0}.pjsfkvpxlinjamtawaksbnnaqs2fc2mtvmozrzckxh7f3kis6yea25ad.onion{path}
+}
+(i2ploc) {
+	header X-I2P-Location http://{args.0}{path}
+}
+(def) {
+	header {
+		# disable FLoC tracking
+		Permissions-Policy interest-cohort=()
+		# enable HSTS
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		# disable clients from sniffing the media type
+		X-Content-Type-Options nosniff
+		# clickjacking protection
+		X-Frame-Options SAMEORIGIN
+		# keep referrer data off of HTTP connections
+		Referrer-Policy no-referrer-when-downgrade
+		X-XSS-Protection "1; mode=block"
+		defer
+	}
+}
+
+:80 {
+	redir https://wiki.projectsegfau.lt/index.php?title=Pizza-1
+}
+
+import /etc/private.caddy
+import ./*.caddy
+
+stats.eu.projectsegfau.lt {
+	import auth
+	reverse_proxy localhost:9100
+	import def
+}
+arya.projectsegfau.lt aryak.me {
+	reverse_proxy https://arya.p.projectsegfau.lt {
+		header_up Host arya.p.projectsegfau.lt
+	}
+}
+cdn.eu.projectsegfau.lt cdn.projectsegfau.lt {
+	encode zstd gzip
+	root * /var/cdn
+	file_server browse
+}
+## OLD URL REDIRECTS
+invidious.mutahar.rocks {
+	redir https://inv.bp.projectsegfau.lt{uri} permanent
+}
+ferrit.projectsegfau.lt snooddit.projectsegfau.lt libreddit.mutahar.rocks {
+	redir https://libreddit.projectsegfau.lt{uri} permanent
+}
+lbry.mutahar.rocks {
+	redir https://lbry.projectsegfau.lt{uri} permanent
+}
+nitter.mutahar.rocks {
+	redir https://nitter.projectsegfau.lt{uri} permanent
+}
+#redir inv.bp.mutahar.rocks inv.bp.projectsegfau.lt permanent
+#redir libreddit.mutahar.rocks libreddit.projectsegfau.lt permanent
+#redir lbry.mutahar.rocks lbry.projectsegfau.lt permanent
+#redir nitter.mutahar.rocks nitter.projectsegfau.lt permanent
