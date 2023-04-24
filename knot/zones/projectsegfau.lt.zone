@@ -29,6 +29,7 @@ pizza                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
 p.projectsegfau.lt. 	A	107.189.12.96
 *.p.projectsegfau.lt. 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
 p.projectsegfau.lt. 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+geminiproxy	CNAME	pizza.projectsegfau.lt.
 ferrit.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
 proxy.lbry.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
 arya.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.

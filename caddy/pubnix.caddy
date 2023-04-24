@@ -31,7 +31,7 @@ grafana.p.projectsegfau.lt {
 	}
 	import def
 }
-geminiproxy.p.projectsegfau.lt {
+geminiproxy.projectsegfau.lt geminiproxy.p.projectsegfau.lt {
 	reverse_proxy 10.7.0.2:8000
 	import def
 	import torloc geminiproxy.p
