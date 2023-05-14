@@ -1,0 +1,66 @@
+; To be placed in /var/lib/knot/zones/psf.lt.zone
+$ORIGIN psf.lt. ; 'default' domain as FQDN for this zone
+$TTL 300 ; default time-to-live for this zone
+
+psf.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
+        2023022702  ;Serial
+        14400       ;Refresh
+        300        ;Retry
+        1209600     ;Expire
+        300        ;Negative response caching TTL
+)
+
+@	IN	NS	ns1.projectsegfau.lt.
+@	IN	NS	ns2.projectsegfau.lt.
+; Pizza-1
+pizza1                               A	107.189.12.96
+pizza                               A	107.189.12.96
+*.eu				A 107.189.12.96
+*.bp                            A 107.189.12.96 
+pizza1                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+pizza                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+*.eu				AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+*.bp                            AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25 
+*.p 	A	107.189.12.96
+p 	A	107.189.12.96
+*.p 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+p 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+gp	CNAME	pizza.psf.lt.
+
+; Soleil Levant
+*                               A	92.148.60.159
+@                               A	92.148.60.159
+auth.p				A	92.148.60.159
+;of				A	92.148.60.159
+;_of._tcp.of.psf.lt SRV    5  0 27015 of.psf.lt.
+s				A	92.148.60.159
+_s._tcp.s.psf.lt SRV    5  0 27015 s.psf.lt.
+
+; US Node
+*.us				A	143.198.131.196
+us				A	143.198.131.196
+*.us				AAAA	2604:a880:4:1d0::52:7000
+us				AAAA	2604:a880:4:1d0::52:7000
+
+; IN Node
+in	A	110.227.202.171
+*.in	A	110.227.202.171
+
+; Status VPS
+status				A	51.91.103.130
+hole				A	51.91.103.130
+wg				A	51.91.103.130
+hole				AAAA	2001:41d0:404:200::5149
+status				AAAA	2001:41d0:404:200::5149
+wg				AAAA	2001:41d0:404:200::5149
+
+; Crypto TXT
+@		TXT	"oa1:btc recipient_address=bc1qrc8ywgp95a6p3zausp4nff70qzstp6h8z86sxd; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+@		TXT	"oa1:ltc recipient_address=ltc1qn3ald586h2ntt0n3zkvwsmju2e5vndgtvvgatj; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+@		TXT	"oa1:xmr recipient_address=47L7Qsto7XcifY3CdG18ySe5Tt83kpFLDLve9jQwbc9taPBLNGv6ZrJNUKpMG9Nj9zHgCZ4FQMSyt75e8Jvx12JFLtJyFdA; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+; PTR(s)
+159.60.148.92.in-addr.arpa.	PTR	mail.psf.lt.
+171.202.227.110.in-addr.arpa.	PTR	in.psf.lt.
+196.131.198.143.in-addr.arpa.	PTR	us.psf.lt.
+130.103.91.51.in-addr.arpa.	PTR	sl.psf.lt.
+96.12.189.107.in-addr.arpa.	PTR	pizza1.psf.lt.

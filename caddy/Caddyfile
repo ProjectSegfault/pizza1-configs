@@ -30,13 +30,13 @@
 		# clickjacking protection
 		X-Frame-Options SAMEORIGIN
 		# keep referrer data off of HTTP connections
-		Referrer-Policy no-referrer-when-downgrade
+		#Referrer-Policy no-referrer-when-downgrade
 		X-XSS-Protection "1; mode=block"
 		defer
 	}
 }
 
-:80 {
+:80 pizza1.projectsegfau.lt pizza.projectsegfau.lt {
 	redir https://wiki.projectsegfau.lt/index.php?title=Pizza-1
 }
 
