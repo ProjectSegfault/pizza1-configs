@@ -45,14 +45,23 @@ us				AAAA	2604:a880:4:1d0::52:7000
 ; IN Node
 in	A	110.227.202.171
 *.in	A	110.227.202.171
+dd	A	110.227.202.171
 
 ; Status VPS
-status				A	51.91.103.130
+st				A	51.91.103.130
 hole				A	51.91.103.130
 wg				A	51.91.103.130
 hole				AAAA	2001:41d0:404:200::5149
-status				AAAA	2001:41d0:404:200::5149
+st				AAAA	2001:41d0:404:200::5149
 wg				AAAA	2001:41d0:404:200::5149
+
+; Simplelogin
+sl				A	51.91.103.130
+sl				AAAA	2001:41d0:404:200::5149
+sl                    MX      10      sl.projectsegfau.lt.
+dkim._domainkey.sl	CNAME	dkim._domainkey.sl.projectsegfau.lt.
+_dmarc.sl	TXT	"v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
+sl		TXT	"v=spf1 include:sl.projectsegfau.lt -all"
 
 ; Crypto TXT
 @		TXT	"oa1:btc recipient_address=bc1qrc8ywgp95a6p3zausp4nff70qzstp6h8z86sxd; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
