@@ -1,4 +1,0 @@
-#!/bin/bash
-mv /opt/docker/${1}/*compose.y*l /opt/docker/${1}/compose.pre-public-conf.yml
-ln -s /configs/docker/${1}-compose.yml /opt/docker/${1}/compose.yml
-cd /opt/docker/${1} && docker compose pull && docker compose down --remove-orphans && docker compose up -d --build && cd -
