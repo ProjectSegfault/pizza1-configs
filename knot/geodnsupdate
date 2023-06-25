@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 geoconf=/etc/knot/geo.conf
-remote='cdn@us.projectsegfau.lt'
+remote='cdn@us'
 printf '' > $geoconf
 for i in $(</var/geodnsdomains); do
 	cat /etc/knot/geodnstemplate >> $geoconf

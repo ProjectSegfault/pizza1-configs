@@ -3,7 +3,7 @@ $ORIGIN psf.lt. ; 'default' domain as FQDN for this zone
 $TTL 300 ; default time-to-live for this zone
 
 psf.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
-        2023022702  ;Serial
+        2023051002  ;Serial
         14400       ;Refresh
         300        ;Retry
         1209600     ;Expire
@@ -39,8 +39,8 @@ _s._tcp.s.psf.lt SRV    5  0 27015 s.psf.lt.
 ; US Node
 *.us				A	143.198.131.196
 us				A	143.198.131.196
-*.us				AAAA	2604:a880:4:1d0::52:7000
-us				AAAA	2604:a880:4:1d0::52:7000
+*.us				AAAA	2604:a880:4:1d0::52:7003
+us				AAAA	2604:a880:4:1d0::52:7003
 
 ; IN Node
 in	A	110.227.202.171

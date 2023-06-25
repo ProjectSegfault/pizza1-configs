@@ -3,7 +3,7 @@ $ORIGIN projectsegfau.lt. ; 'default' domain as FQDN for this zone
 $TTL 300 ; default time-to-live for this zone
 
 projectsegfau.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
-        2023022702  ;Serial
+        2023051002  ;Serial
         14400       ;Refresh
         300        ;Retry
         1209600     ;Expire
@@ -51,8 +51,8 @@ _of._tcp.of.projectsegfau.lt SRV    5  0 27015 of.projectsegfau.lt.
 ; US Node
 *.us				A	143.198.131.196
 us				A	143.198.131.196
-*.us				AAAA	2604:a880:4:1d0::52:7000
-us				AAAA	2604:a880:4:1d0::52:7000
+*.us				AAAA	2604:a880:4:1d0::52:7003
+us				AAAA	2604:a880:4:1d0::52:7003
 
 ; IN Node
 in	A	110.227.202.171
@@ -71,7 +71,7 @@ mail.projectsegfau.lt.		A	92.148.60.159
 feb2023._domainkey    IN   TXT   "v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+gF5p8pTKZMPe4rDdsDTedelOTeIcEYzy5Fd1b3Tv0gWTOkk7Lx+opIY0lUU9k+K+UbPJ4asUT6zrdZusXrp85g36Rh8+lZbZWr6mqE/GJjIh9kIvXRWasHZpcnws2Ex2Mc2tefJ9FtFntpoX/v0zR2Wr8wiztZrHL23VaY+7kLgPe4PC0CM4tLyuuraC0AYVjI/yCvo8XZkb7kvOfi+EpThN3B91zSGVnZXPJdtQdE/JJ2psthhRilHBwo1Rs+PsFNFvi1chHPP44z2JPS7OyALR+ycDvXz2Hj6WS8s9pcXk7NPi0sLY+h+5Ha6KoDa4sjBmmEN07U+hE+2/rE9IQIDAQAB"
 dkim._domainkey.projectsegfau.lt. 600 IN TXT "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Z7evsQCm7e0ZN+dx3ygeSHRi6NCOjVInqnrnDe2xkooUp/szLXZ1xsGQAYM+tZ8+M0WKdIm7uQq8xCEdjDCO/l/fE6b4/3u11aj44tLXBsse5gQvOH/SQpw/zwzgU07tnOjajCExnuIeZaDNw6S5iN2oGUlkvIzIw2zv5PFVa9ax4/N0TuTMKQOysFh" "JHv2lJjvA/WgqioOOqDFjlhc959lYNqMkjaEb0r2FLky1uQx2c01MzkkXuoNVG+7anrcgzPrQ9AMTBvAsqwStwX+6JpNcwh6MpCBHQmAaFC5TkECwZLopujB+LoTbZcY2ejP8EeKSa04yU/jEnPtsMdb5wIDAQAB"
 @		TXT	"v=spf1 ip4:107.189.12.96 ip4:92.148.60.159 include:relay.selea.se ~all"
-_dmarc.projectsegfau.lt. 600 IN TXT "v=DMARC1; p=reject; rua=mailto:admin@projectsegfau.lt; ruf=mailto:admin@projectsegfau.lt; adkim=s; aspf=s"
+_dmarc.projectsegfau.lt. 600 IN TXT "v=DMARC1; p=reject; rua=mailto:report@projectsegfau.lt; ruf=mailto:report@projectsegfau.lt; adkim=s; aspf=s"
 _imap._tcp.projectsegfau.lt. 600 IN SRV 20 1 143 mail.projectsegfau.lt.
 _pop3._tcp.projectsegfau.lt. 600 IN SRV 20 1 110 mail.projectsegfau.lt.
 _submission._tcp.projectsegfau.lt. 600 IN SRV 20 1 587 mail.projectsegfau.lt.
@@ -84,6 +84,8 @@ _25._tcp.mail.projectsegfau.lt. 86400 IN TLSA 2 1 1 0b9fa5a59eed715c26c1020c711b
 projectsegfau.lt.                    MX      10      mail.projectsegfau.lt.
 p.projectsegfau.lt. 			TXT	     "buyvm-validation=b6444ab72efafcdef664a693ce2ba26ebd03ed1c7377cd08926db831e94a3d5a"
 
+projectsegfau.lt		A	107.189.12.96
+projectsegfau.lt		AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
 
 ; Simplelogin
 sl				A	51.91.103.130
@@ -104,3 +106,5 @@ _token._dnswl.projectsegfau.lt.		IN	TXT	"1q5i422gbg9qqlekp8zag8scwwb7oicd"
 196.131.198.143.in-addr.arpa.	PTR	us.projectsegfau.lt.
 130.103.91.51.in-addr.arpa.	PTR	sl.projectsegfau.lt.
 96.12.189.107.in-addr.arpa.	PTR	pizza1.projectsegfau.lt.
+
+
