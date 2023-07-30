@@ -17,14 +17,14 @@ pizza1                               A	107.189.12.96
 pizza                               A	107.189.12.96
 *.eu				A 107.189.12.96
 *.bp                            A 107.189.12.96 
-pizza1                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
-pizza                          AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
-*.eu				AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
-*.bp                            AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25 
+pizza1                          AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+pizza                          AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+*.eu				AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+*.bp                            AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
 *.p 	A	107.189.12.96
 p 	A	107.189.12.96
-*.p 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
-p 	AAAA	2605:6400:30:f79f:9e20:f366:f052:5a25
+*.p 	AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+p 	AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
 gp	CNAME	pizza.psf.lt.
 
 ; Soleil Levant
@@ -35,12 +35,20 @@ auth.p				A	92.148.60.159
 ;_of._tcp.of.psf.lt SRV    5  0 27015 of.psf.lt.
 s				A	92.148.60.159
 _s._tcp.s.psf.lt SRV    5  0 27015 s.psf.lt.
+o.eu	CNAME	s.psf.lt.
+bw.eu	CNAME	s.psf.lt.
+gh.eu	CNAME	s.psf.lt.
+hp.eu	CNAME	s.psf.lt.
+rg.eu	CNAME	s.psf.lt.
+tw.eu	CNAME	s.psf.lt.
+sc.eu	CNAME	s.psf.lt.
+tl.eu	CNAME	s.psf.lt.
 
 ; US Node
 *.us				A	143.198.131.196
 us				A	143.198.131.196
-*.us				AAAA	2604:a880:4:1d0::52:7003
-us				AAAA	2604:a880:4:1d0::52:7003
+*.us				AAAA	2604:a880:4:1d0::52:7000
+us				AAAA	2604:a880:4:1d0::52:7000
 
 ; IN Node
 in	A	110.227.202.171
@@ -54,6 +62,20 @@ wg				A	51.91.103.130
 hole				AAAA	2001:41d0:404:200::5149
 st				AAAA	2001:41d0:404:200::5149
 wg				AAAA	2001:41d0:404:200::5149
+
+; Tailscale
+*.v		A	100.64.0.6
+core.v		A	100.64.0.11
+db.v		A	100.64.0.12
+docker.v	A	100.64.0.13
+lxc.v		A	100.64.0.15
+backwards.v	A	100.64.0.6
+us.v		A	100.64.0.3
+in.v		A	100.64.0.5
+pizza1.v	A	100.64.0.8
+pizza.v		A	100.64.0.8
+status.v	A	100.64.0.9
+sol.v		A	100.64.0.16
 
 ; Simplelogin
 sl				A	51.91.103.130

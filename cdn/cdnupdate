@@ -1,6 +1,6 @@
 #!/bin/bash
 RSYNC_ARGS='--recursive --copy-links --copy-dirlinks --perms --xattrs --times --delete --verbose --compress --compress-choice=zstd --mkpath --cvs-exclude --human-readable --partial --progress'
 # India Node
-rsync --rsh='ssh -p6922' ${RSYNC_ARGS} /var/cdn/ cdn@in.projectsegfau.lt:/var/cdn
+rsync ${RSYNC_ARGS} /var/cdn/ cdn@in.vpn.projectsegfau.lt:/var/cdn
 # US Node
-rsync ${RSYNC_ARGS} /var/cdn/ cdn@us.projectsegfau.lt:/var/cdn
+rsync ${RSYNC_ARGS} /var/cdn/ cdn@us.vpn.projectsegfau.lt:/var/cdn

@@ -1,16 +1,4 @@
 REPLACEME:
-  - geo: "*;*;*" 
-    A: 107.189.12.96
-    AAAA: 2605:6400:30:f79f:9e20:f366:f052:5a25
-    TXT: "Worldwide-BuyVM-Lux" 
-  - geo: "EU;*;*" 
-    A: 107.189.12.96
-    TXT: "Europe-BuyVM-Lux"
-    AAAA: 2605:6400:30:f79f:9e20:f366:f052:5a25
-  - geo: "AF;*;*" 
-    A: 107.189.12.96
-    AAAA: 2605:6400:30:f79f:9e20:f366:f052:5a25
-    TXT: "Africa-BuyVM-Lux"
   - geo: "NA;*;*"
     A: 143.198.131.196
     AAAA: 2604:a880:4:1d0::52:7000
@@ -23,6 +11,6 @@ REPLACEME:
     A: 143.198.131.196
     AAAA: 2604:a880:4:1d0::52:7000
     TXT: "Oceania-DigitalOcean-SanFrancisco"
-  - geo: "AS;*;*" 
+  - geo: "AS;*;*"
     A: 110.227.202.171
-    TXT: "Asia-Airtel-Ind" 
+    TXT: "Asia-Airtel-Ind"

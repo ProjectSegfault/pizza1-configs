@@ -1,0 +1,10 @@
+
+  - geo: "*;*;*"
+    A: 92.148.60.159
+    TXT: "Worldwide-Soleil-Lille"
+  - geo: "EU;*;*"
+    A: 92.148.60.159
+    TXT: "Europe-Soleil-Lille"
+  - geo: "AF;*;*"
+    A: 92.148.60.159
+    TXT: "Africa-Soleil-Lille"
