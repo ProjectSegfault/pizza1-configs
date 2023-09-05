@@ -1,8 +1,8 @@
 ; To be placed in /var/lib/knot/zones/projectsegfau.lt.zone
 $ORIGIN projectsegfau.lt. ; 'default' domain as FQDN for this zone
-$TTL 300 ; default time-to-live for this zone
+$TTL 3600 ; default time-to-live for this zone
 
-projectsegfau.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
+projectsegfau.lt.   IN  SOA     ns1.projectsegfau.lt. admin.projectsegfau.lt. (
         2023051002  ;Serial
         14400       ;Refresh
         300        ;Retry
@@ -14,32 +14,26 @@ projectsegfau.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
 @	IN	NS	ns1.projectsegfau.lt.
 @	IN	NS	ns2.projectsegfau.lt.
 ns1	A	107.189.12.96
-ns2	A	143.198.131.196
+ns2	A	173.82.145.86
 
 ; Pizza-1
 pizza1                               A	107.189.12.96
-pizza                               A	107.189.12.96
-*.eu				A 107.189.12.96
-*.bp                            A 107.189.12.96 
-pizza1                          AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-pizza                          AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-*.eu				AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-*.bp                            AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-*.p.projectsegfau.lt. 	A	107.189.12.96
-p.projectsegfau.lt. 	A	107.189.12.96
-*.p.projectsegfau.lt. 	AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-p.projectsegfau.lt. 	AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-geminiproxy	CNAME	pizza.projectsegfau.lt.
-ferrit.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
-proxy.lbry.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
-arya.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
-bb.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
-bb.in.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
-bb.us.projectsegfau.lt.	CNAME	pizza.projectsegfau.lt.
+pizza                               CNAME	pizza1.projectsegfau.lt.
+*.eu				CNAME pizza1.projectsegfau.lt.
+*.bp                            CNAME pizza1.projectsegfau.lt.
+*.p.projectsegfau.lt. 	CNAME	pizza1.projectsegfau.lt.
+p.projectsegfau.lt. 	CNAME	pizza1.projectsegfau.lt.
+geminiproxy	CNAME	pizza1.projectsegfau.lt.
+proxy.lbry.projectsegfau.lt.	CNAME	pizza1.projectsegfau.lt.
+arya.projectsegfau.lt.	CNAME	pizza1.projectsegfau.lt.
+bb.projectsegfau.lt.	CNAME	pizza1.projectsegfau.lt.
+bb.in.projectsegfau.lt.	CNAME	pizza1.projectsegfau.lt.
+bb.us.projectsegfau.lt.	CNAME	pizza1.projectsegfau.lt.
 
 ; Soleil Levant
 *                               A	92.148.60.159
 @                               A	92.148.60.159
+;@                              	A	107.189.12.96
 web.dev.projectsegfau.lt.		A	92.148.60.159
 auth.p.projectsegfau.lt.		A	92.148.60.159
 autoconfig.projectsegfau.lt.	CNAME	mail.projectsegfau.lt.
@@ -62,21 +56,20 @@ translate.eu	CNAME	soleil.projectsegfau.lt.
 gothub.dev.projectsegfau.lt.	CNAME	soleil.projectsegfau.lt.
 
 ; US Node
-*.us				A	143.198.131.196
-us				A	143.198.131.196
-*.us				AAAA	2604:a880:4:1d0::52:7000
-us				AAAA	2604:a880:4:1d0::52:7000
+*.us				A	173.82.145.86
+us				A	173.82.145.86
+*.us				AAAA	2607:f130:0:105:ff:ff:a107:24e9
+us				AAAA	2607:f130:0:105:ff:ff:a107:24e9
 
 ; IN Node
 in	A	110.227.202.171
 *.in	A	110.227.202.171
 
 ; Status VPS
-status				A	51.91.103.130
+status				CNAME	jameskitt616.one.
 hole				A	51.91.103.130
 wg				A	51.91.103.130
 hole				AAAA	2001:41d0:404:200::5149
-status				AAAA	2001:41d0:404:200::5149
 wg				AAAA	2001:41d0:404:200::5149
 
 ; Tailscale
@@ -86,7 +79,7 @@ db.vpn		A	100.64.0.12
 docker.vpn	A	100.64.0.13
 lxc.vpn		A	100.64.0.15
 backwards.vpn	A	100.64.0.6
-us.vpn		A	100.64.0.3
+us.vpn		A	100.64.0.19
 in.vpn		A	100.64.0.5
 pizza1.vpn	A	100.64.0.8
 pizza.vpn	A	100.64.0.8
@@ -109,15 +102,14 @@ _pop3s._tcp.projectsegfau.lt. 600 IN SRV 10 1 995 mail.projectsegfau.lt.
 autoconfig.projectsegfau.lt. 600 IN CNAME mail.projectsegfau.lt.
 _25._tcp.mail.projectsegfau.lt. 86400 IN TLSA 2 1 1 0b9fa5a59eed715c26c1020c711b4f6ec42d58b0015e14337a39dad301c5afc3
 projectsegfau.lt.                    MX      10      mail.projectsegfau.lt.
-p.projectsegfau.lt. 			TXT	     "buyvm-validation=b6444ab72efafcdef664a693ce2ba26ebd03ed1c7377cd08926db831e94a3d5a"
 
 ; Simplelogin
-sl				A	51.91.103.130
-sl				AAAA	2001:41d0:404:200::5149
+sl                            A 107.189.12.96 
+sl                            AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
 sl.projectsegfau.lt.                    MX      10      sl.projectsegfau.lt.
 dkim._domainkey.sl		TXT	"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC79GZdNBCBZ28EGJcnar/yY3QWlAoeQW0sEQIpibzAtYMtZZw7kBzbKNxRdnMGDOQE1hzo/gJUVv+A2tgsYswXOCjO+l0gtwcKsNuP79Tn9guGtsq5aLeoYuTbvC1SrHLLufv01oEGvT6VlOm3e3+XbGjvXKVQw4ym3H55wD7WbQIDAQAB"
 _dmarc.sl.projectsegfau.lt. 600 IN TXT "v=DMARC1; p=quarantine; rua=mailto:admin@projectsegfau.lt; ruf=mailto:admin@projectsegfau.lt; adkim=r; aspf=r"
-sl		TXT	"v=spf1 ip4:51.91.103.130 ~all"
+sl		TXT	"v=spf1 ip4:107.189.12.96 ip6:2605:6400:30:f79f:29a4:61b2:5831:5b1d ~all"
 
 ; Crypto TXT
 @		TXT	"oa1:btc recipient_address=bc1qrc8ywgp95a6p3zausp4nff70qzstp6h8z86sxd; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
@@ -128,8 +120,5 @@ _token._dnswl.projectsegfau.lt.		IN	TXT	"1q5i422gbg9qqlekp8zag8scwwb7oicd"
 ; PTR(s)
 159.60.148.92.in-addr.arpa.	PTR	mail.projectsegfau.lt.
 171.202.227.110.in-addr.arpa.	PTR	in.projectsegfau.lt.
-196.131.198.143.in-addr.arpa.	PTR	us.projectsegfau.lt.
-130.103.91.51.in-addr.arpa.	PTR	sl.projectsegfau.lt.
-96.12.189.107.in-addr.arpa.	PTR	pizza1.projectsegfau.lt.
-
-
+86.145.82.173.in-addr.arpa.	PTR	us.projectsegfau.lt.
+96.12.189.107.in-addr.arpa.	PTR	sl.projectsegfau.lt.

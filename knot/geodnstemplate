@@ -1,15 +1,15 @@
 REPLACEME:
   - geo: "NA;*;*"
-    A: 143.198.131.196
-    AAAA: 2604:a880:4:1d0::52:7000
+    A: 173.82.145.86
+    AAAA: 2607:f130:0:105:ff:ff:a107:24e9
     TXT: "NorthAmerica-DigitalOcean-SanFrancisco"
   - geo: "SA;*;*"
-    A: 143.198.131.196
-    AAAA: 2604:a880:4:1d0::52:7000
+    A: 173.82.145.86
+    AAAA: 2607:f130:0:105:ff:ff:a107:24e9
     TXT: "SouthAmerica-DigitalOcean-SanFrancisco"
   - geo: "OC;*;*"
-    A: 143.198.131.196
-    AAAA: 2604:a880:4:1d0::52:7000
+    A: 173.82.145.86
+    AAAA: 2607:f130:0:105:ff:ff:a107:24e9
     TXT: "Oceania-DigitalOcean-SanFrancisco"
   - geo: "AS;*;*"
     A: 110.227.202.171

@@ -1,8 +1,8 @@
 ; To be placed in /var/lib/knot/zones/psf.lt.zone
 $ORIGIN psf.lt. ; 'default' domain as FQDN for this zone
-$TTL 300 ; default time-to-live for this zone
+$TTL 3600 ; default time-to-live for this zone
 
-psf.lt.   IN  SOA     ns1.projectsegfau.lt. ns2.projectsegfau.lt. (
+psf.lt.   IN  SOA     ns1.projectsegfau.lt. admin.projectsegfau.lt. (
         2023051002  ;Serial
         14400       ;Refresh
         300        ;Retry
@@ -17,19 +17,21 @@ pizza1                               A	107.189.12.96
 pizza                               A	107.189.12.96
 *.eu				A 107.189.12.96
 *.bp                            A 107.189.12.96 
-pizza1                          AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-pizza                          AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-*.eu				AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-*.bp                            AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+pizza1                          AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
+pizza                          AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
+*.eu				AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
+*.bp                            AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
 *.p 	A	107.189.12.96
 p 	A	107.189.12.96
-*.p 	AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-p 	AAAA	2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+*.p 	AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
+p 	AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
 gp	CNAME	pizza.psf.lt.
 
 ; Soleil Levant
 *                               A	92.148.60.159
 @                               A	92.148.60.159
+;@                              	A	107.189.12.96
+lt                               A	92.148.60.159
 auth.p				A	92.148.60.159
 ;of				A	92.148.60.159
 ;_of._tcp.of.psf.lt SRV    5  0 27015 of.psf.lt.
@@ -45,10 +47,10 @@ sc.eu	CNAME	s.psf.lt.
 tl.eu	CNAME	s.psf.lt.
 
 ; US Node
-*.us				A	143.198.131.196
-us				A	143.198.131.196
-*.us				AAAA	2604:a880:4:1d0::52:7000
-us				AAAA	2604:a880:4:1d0::52:7000
+*.us				A	173.82.145.86
+us				A	173.82.145.86
+*.us				AAAA	2607:f130:0:105:ff:ff:a107:24e9
+us				AAAA	2607:f130:0:105:ff:ff:a107:24e9
 
 ; IN Node
 in	A	110.227.202.171
@@ -56,11 +58,10 @@ in	A	110.227.202.171
 dd	A	110.227.202.171
 
 ; Status VPS
-st				A	51.91.103.130
+st				CNAME	jameskitt616.one.
 hole				A	51.91.103.130
 wg				A	51.91.103.130
 hole				AAAA	2001:41d0:404:200::5149
-st				AAAA	2001:41d0:404:200::5149
 wg				AAAA	2001:41d0:404:200::5149
 
 ; Tailscale
@@ -70,7 +71,7 @@ db.v		A	100.64.0.12
 docker.v	A	100.64.0.13
 lxc.v		A	100.64.0.15
 backwards.v	A	100.64.0.6
-us.v		A	100.64.0.3
+us.v		A	100.64.0.19
 in.v		A	100.64.0.5
 pizza1.v	A	100.64.0.8
 pizza.v		A	100.64.0.8
@@ -78,8 +79,8 @@ status.v	A	100.64.0.9
 sol.v		A	100.64.0.16
 
 ; Simplelogin
-sl				A	51.91.103.130
-sl				AAAA	2001:41d0:404:200::5149
+sl                            A 107.189.12.96 
+sl                            AAAA	2605:6400:30:f79f:29a4:61b2:5831:5b1d
 sl                    MX      10      sl.projectsegfau.lt.
 dkim._domainkey.sl	CNAME	dkim._domainkey.sl.projectsegfau.lt.
 _dmarc.sl	TXT	"v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
@@ -89,9 +90,9 @@ sl		TXT	"v=spf1 include:sl.projectsegfau.lt -all"
 @		TXT	"oa1:btc recipient_address=bc1qrc8ywgp95a6p3zausp4nff70qzstp6h8z86sxd; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
 @		TXT	"oa1:ltc recipient_address=ltc1qn3ald586h2ntt0n3zkvwsmju2e5vndgtvvgatj; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
 @		TXT	"oa1:xmr recipient_address=47L7Qsto7XcifY3CdG18ySe5Tt83kpFLDLve9jQwbc9taPBLNGv6ZrJNUKpMG9Nj9zHgCZ4FQMSyt75e8Jvx12JFLtJyFdA; recipient_name=Project Segfault; tx_description=Donate to Project Segfault"
+
 ; PTR(s)
 159.60.148.92.in-addr.arpa.	PTR	mail.psf.lt.
 171.202.227.110.in-addr.arpa.	PTR	in.psf.lt.
-196.131.198.143.in-addr.arpa.	PTR	us.psf.lt.
-130.103.91.51.in-addr.arpa.	PTR	sl.psf.lt.
-96.12.189.107.in-addr.arpa.	PTR	pizza1.psf.lt.
+86.145.82.173.in-addr.arpa.	PTR	us.psf.lt.
+96.12.189.107.in-addr.arpa.	PTR	sl.psf.lt.
