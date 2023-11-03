@@ -1,16 +1,9 @@
 REPLACEME:
   - geo: "NA;*;*"
-    A: 173.82.145.86
-    AAAA: 2607:f130:0:105:ff:ff:a107:24e9
-    TXT: "NorthAmerica-DigitalOcean-SanFrancisco"
+    CNAME: us.projectsegfau.lt.
   - geo: "SA;*;*"
-    A: 173.82.145.86
-    AAAA: 2607:f130:0:105:ff:ff:a107:24e9
-    TXT: "SouthAmerica-DigitalOcean-SanFrancisco"
+    CNAME: us.projectsegfau.lt.
   - geo: "OC;*;*"
-    A: 173.82.145.86
-    AAAA: 2607:f130:0:105:ff:ff:a107:24e9
-    TXT: "Oceania-DigitalOcean-SanFrancisco"
+    CNAME: us.projectsegfau.lt.
   - geo: "AS;*;*"
-    A: 110.227.202.171
-    TXT: "Asia-Airtel-Ind"
+    CNAME: in.projectsegfau.lt.

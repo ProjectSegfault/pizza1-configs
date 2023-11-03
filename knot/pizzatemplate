@@ -1,13 +1,6 @@
-
   - geo: "*;*;*"
-    A: 107.189.12.96
-    AAAA: 2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-    TXT: "Worldwide-BuyVM-Lux"
+    CNAME: pizza1.projectsegfau.lt.
   - geo: "EU;*;*"
-    A: 107.189.12.96
-    TXT: "Europe-BuyVM-Lux"
-    AAAA: 2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
+    CNAME: pizza1.projectsegfau.lt.
   - geo: "AF;*;*"
-    A: 107.189.12.96
-    AAAA: 2605:6400:30:f79f:e3e9:15cf:5b61:c4ee
-    TXT: "Africa-BuyVM-Lux"
+    CNAME: pizza1.projectsegfau.lt.
