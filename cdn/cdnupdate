@@ -1,8 +1,0 @@
-#!/bin/bash
-RSYNC_ARGS='--recursive --copy-links --copy-dirlinks --perms --xattrs --times --delete --verbose --compress --compress-choice=zstd --mkpath --cvs-exclude --human-readable --partial --progress'
-# India Node
-rsync ${RSYNC_ARGS} /var/cdn/ cdn@in.vpn.projectsegfau.lt:/var/cdn
-rsync ${RSYNC_ARGS} /var/lib/cdn/bans.txt cdn@in.vpn.projectsegfau.lt:/var/lib/cdn/bans.txt
-# US Node
-rsync ${RSYNC_ARGS} /var/cdn/ cdn@us.vpn.projectsegfau.lt:/var/cdn
-rsync ${RSYNC_ARGS} /var/lib/cdn/bans.txt cdn@us.vpn.projectsegfau.lt:/var/lib/cdn/bans.txt
