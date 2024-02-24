@@ -1,23 +1,13 @@
 #!/usr/bin/env bash
-remote='cdn@us.vpn.projectsegfau.lt'
+#remote='cdn@us.vpn.projectsegfau.lt'
+remote='cdn@100.64.0.19'
 geoconf=/etc/knot/geo.conf
 domainsfile=/var/geodnsdomains
-soltemplate=/configs/knot/soltemplate
-pizzatemplate=/configs/knot/pizzatemplate
 restemplate=/configs/knot/geodnstemplate
 printf '' > $geoconf
 for i in $(<$domainsfile); do
 	cat $restemplate >> $geoconf
-	while IFS=, read -r dom ser; do 
-		domain=$dom
-		server=$ser
-	done < <(echo ${i})
-	if [[ $server == "pizza1" ]]; then
-		cat $pizzatemplate >> $geoconf
-	elif [[ $server == "soleil" ]]; then
-		cat $soltemplate >> $geoconf
-	fi
-	sed -i "s/REPLACEME/${domain}/" $geoconf
+	sed -i "s/REPLACEME/${i}/" $geoconf
 done
 
 scp $geoconf "${remote}":/var/geo.conf

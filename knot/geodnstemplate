@@ -1,9 +1,15 @@
 REPLACEME:
+  - geo: "*;*;*"
+    CNAME: pizza1.psf.lt.
+  - geo: "EU;*;*"
+    CNAME: pizza1.psf.lt.
+  - geo: "AF;*;*"
+    CNAME: pizza1.psf.lt.
   - geo: "NA;*;*"
-    CNAME: us.projectsegfau.lt.
+    CNAME: us.psf.lt.
   - geo: "SA;*;*"
-    CNAME: us.projectsegfau.lt.
+    CNAME: us.psf.lt.
   - geo: "OC;*;*"
-    CNAME: us.projectsegfau.lt.
+    CNAME: us.psf.lt.
   - geo: "AS;*;*"
-    CNAME: in.projectsegfau.lt.
+    CNAME: in.psf.lt.

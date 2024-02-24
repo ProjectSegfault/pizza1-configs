@@ -1,6 +1,0 @@
-  - geo: "*;*;*"
-    CNAME: pizza1.projectsegfau.lt.
-  - geo: "EU;*;*"
-    CNAME: pizza1.projectsegfau.lt.
-  - geo: "AF;*;*"
-    CNAME: pizza1.projectsegfau.lt.
